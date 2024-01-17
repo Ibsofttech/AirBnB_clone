@@ -115,12 +115,12 @@ class HBNBCommand(cmd.Cmd):
                 elif len(line) < 4:
                     print(f"** value missing **")
                 else:
-                    new_obj = storage.all()[key]
+                    obj = storage.all()[key]
                     try:
-                        setattr(new_obj, line[2], eval(line[3]))
+                        setattr(obj, line[2], eval(line[3]))
                     except NameError:
-                        setattr(new_obj, line[2], line[3])
-                    new_obj.save()
+                        setattr(obj, line[2], line[3])
+                    obj.save()
             else:
                 print(f"** no instance found **")
 
