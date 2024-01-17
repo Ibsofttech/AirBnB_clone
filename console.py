@@ -148,8 +148,7 @@ class HBNBCommand(cmd.Cmd):
                 _id = new_id[0].strip('"')
                 _name = new_id[1].strip('" ')
                 _value = new_id[2].strip(' ')
-                print(f"{line[0]} {_id} {_name} {_value}")
-                self.do_update()
+                self.do_update(f"{line[0]} {_id} {_name} {_value}")
 
 
 if __name__ == "__main__":
