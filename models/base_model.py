@@ -2,6 +2,7 @@
 """Starts the BaseModel class defination"""
 import uuid
 from datetime import datetime
+import models
 
 
 class BaseModel:
@@ -20,6 +21,7 @@ class BaseModel:
             self.__dict__['id'] = str(uuid.uuid4())
             self.__dict__['created_at'] = datetime.now()
             self.__dict__['updated_at'] = datetime.now()
+            models.storage.new(self)
 
     def __str__(self):
         """returns [<class name>] (<self.id>) <self.__dict__>"""
@@ -33,6 +35,7 @@ class BaseModel:
         """updates the public instance attribute"""
 
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """returns a dictionary containing all keys/values
